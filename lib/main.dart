@@ -11,14 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Business Card',
-        home: Scaffold(
-          body: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/cardbackground.png"),
-                    fit: BoxFit.fill)),
+      debugShowCheckedModeBanner: false,
+      title: 'Business Card',
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/cardbackground.png"),
+                  fit: BoxFit.fill)),
+          child: SafeArea(
+            top: true,
+            bottom: true,
+            left: true,
+            right: true,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -27,51 +32,56 @@ class MyApp extends StatelessWidget {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                          blurRadius: 35,
+                          blurRadius: Constants.avatarBlurShadow,
                           color: Constants.avatarShadowColor,
                           spreadRadius: 1)
                     ],
                   ),
                   child: CircleAvatar(
                     backgroundImage: AssetImage('assets/images/me.jpg'),
-                    radius: 100,
+                    radius: Constants.avatarRadius,
                   ),
                 ),
                 SizedBox(
-                  height: 45.0,
+                  height: Constants.avatarAndPersonNameSizeBoxHeight,
                 ),
                 Text('Kevin Guillen',
                     style: TextStyle(
                       fontSize: Constants.personNameFontSize,
                       fontWeight: FontWeight.bold,
                       color: Constants.personNameTextColor,
-                      letterSpacing: 1.0,
+                      letterSpacing: Constants.letterSpacing,
                     )),
                 SizedBox(
-                  height: 10.0,
+                  height: Constants.personNameAndPositionSizeBoxHeight,
                 ),
                 Text(
                   'Flutter Developer Trainee',
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: Constants.positionFontSize,
                     fontWeight: FontWeight.bold,
                     color: Constants.positionTextColor,
-                    letterSpacing: 1.0,
+                    letterSpacing: Constants.letterSpacing,
                   ),
                 ),
-                SizedBox(
-                  height: 80.0,
-                  width: 300.0,
-                  child: Divider(
-                    thickness: 2.0,
-                    color: Colors.blueAccent.shade100,
-                  ),
+                Column(
+                  children: [
+                    Divider(
+                      height: 60,
+                      thickness: 3,
+                      color: Colors.blueAccent.shade100,
+                      indent: 60,
+                      endIndent: 60,
+                    )
+                  ],
                 ),
                 Card(
-                  color: Colors.black12,
+                  color: Constants.cardsBackgroundColor,
                   child: ListTile(
-                    leading: Container(
-                      padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+                    leading: Padding(
+                      padding: EdgeInsets.only(
+                        top: 8.0,
+                      ),
                       child: Icon(
                         Icons.phone,
                         color: Constants.phoneIconColor,
@@ -81,7 +91,7 @@ class MyApp extends StatelessWidget {
                       '+54 9 11 2494 607181',
                       style: TextStyle(
                         fontSize: Constants.phoneNumberFontSize,
-                        letterSpacing: 1.0,
+                        letterSpacing: Constants.letterSpacing,
                         color: Constants.contactInfoTextColor,
                       ),
                     ),
@@ -93,12 +103,14 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: Constants.phoneAndEmailSizeBoxHeight),
                 Card(
                   color: Constants.cardsBackgroundColor,
                   child: ListTile(
-                    leading: Container(
-                      padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+                    leading: Padding(
+                      padding: EdgeInsets.only(
+                        top: 8.0,
+                      ),
                       child: Icon(
                         Icons.email,
                         color: Constants.emailIconColor,
@@ -108,7 +120,7 @@ class MyApp extends StatelessWidget {
                       'kevin.guillen@globant.com',
                       style: TextStyle(
                         fontSize: Constants.emailFontSize,
-                        letterSpacing: 1.0,
+                        letterSpacing: Constants.letterSpacing,
                         color: Constants.contactInfoTextColor,
                       ),
                     ),
@@ -123,6 +135,8 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
