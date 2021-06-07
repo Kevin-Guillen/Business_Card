@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-abstract class Constants{
+abstract class Constants {
   static const Color avatarShadowColor = Colors.black;
   static const Color personNameTextColor = Colors.white;
   static const Color contactInfoTextColor = Colors.white;
@@ -19,5 +18,4 @@ abstract class Constants{
   static const double letterSpacing = 1.00;
   static const double emailFontSize = 20.0;
   static const double avatarBlurShadow = 35.0;
-
 }
