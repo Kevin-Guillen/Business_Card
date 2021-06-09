@@ -14,5 +14,4 @@ abstract class Constants {
   // contactInfoTextStyle
   static const mailAndPhoneNumberFontSize = 20.0;
   static const letterSpacing = 1.0;
-  static const contactInfoTextColor = Colors.white;
 }
