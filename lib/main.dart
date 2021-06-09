@@ -8,22 +8,22 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext) {
+  Widget build(buildContext) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Business Card',
       home: Scaffold(
-        body: Container(
-          color: Colors.purple.shade300,
-          child: SafeArea(
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/cardbackground.png',),
-                  fit: BoxFit.fill,
-                ),
+        backgroundColor: Colors.purple.shade200,
+        body: SafeArea(
+          child: Stack(
+            fit: StackFit.expand,
+            alignment: AlignmentDirectional.center,
+            children: [
+              Image.asset(
+                'assets/images/cardbackground.png',
+                fit: BoxFit.fill,
               ),
-              child: Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
@@ -69,17 +69,18 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                   Divider(
-                    height: 60,
-                    thickness: 3,
+                    height: Constants.dividerHeight,
+                    thickness: Constants.dividerThickness,
                     color: Colors.blueAccent.shade100,
-                    indent: 60,
-                    endIndent: 60,
+                    indent: Constants.dividerIndentStart,
+                    endIndent: Constants.dividerIndentEnd,
                   ),
                   Card(
                     color: Colors.black12,
                     child: ListTile(
                       leading: Padding(
                         padding: EdgeInsets.only(
+                          top: Constants.iconsTopPadding,
                         ),
                         child: Icon(
                           Icons.phone,
@@ -106,7 +107,7 @@ class MyApp extends StatelessWidget {
                     child: ListTile(
                       leading: Padding(
                         padding: EdgeInsets.only(
-                          top: 8.0,
+                          top: Constants.iconsTopPadding,
                         ),
                         child: Icon(
                           Icons.email,
@@ -125,7 +126,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ],
           ),
         ),
       ),
